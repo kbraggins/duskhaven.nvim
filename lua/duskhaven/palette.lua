@@ -1,0 +1,22 @@
+return {
+	bg = "#0c1021",
+	bg_light = "#1a1f35",
+	bg_dark = "#0a0d1a",
+	fg = "#fdfff1",
+	fg_dim = "#d8d9c8",
+
+	orange = "#f25e01",
+	yellow = "#b3f63a",
+	magenta = "#ff0cac",
+	blue = "#6b8ab8",
+	blue_light = "#97c7e9",
+	blue_dark = "#314d8a",
+	red = "#e04a5f",
+	green = "#55ba30",
+	peach = "#f5c6b0",
+	cream = "#f8e9c7",
+	gray = "#a4a7a7",
+	gray_dark = "#505257",
+	gray_darker = "#35384a",
+	black = "#272822",
+}

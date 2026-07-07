@@ -38,6 +38,8 @@ M.setup = function()
 		CmdlineBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		FloatBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		WinSeparator = { fg = colors.blue_dark },
+		Folded = { fg = colors.blue, bg = colors.bg_dark },
+		FoldColumn = { fg = colors.gray, bg = colors.magenta },
 
 		-- Statusline / Tabline
 		StatusLine = { fg = colors.fg_dim, bg = colors.bg_dark },

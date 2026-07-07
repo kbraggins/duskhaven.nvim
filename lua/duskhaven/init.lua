@@ -28,6 +28,7 @@ M.setup = function()
 		Title = { fg = colors.orange, bold = true },
 		NonText = { fg = colors.gray_dark },
 		Special = { fg = colors.magenta },
+		MatchParen = { fg = colors.cream, bold = true },
 
 		-- UI Elements
 		Visual = { bg = colors.gray_darker },
@@ -50,6 +51,10 @@ M.setup = function()
 		DiagnosticWarn = { fg = colors.yellow },
 		DiagnosticInfo = { fg = colors.cream },
 		DiagnosticHint = { fg = colors.peach },
+		DiagnosticUnderlineError = { undercurl = true, sp = colors.red },
+		DiagnosticUnderlineWarn = { undercurl = true, sp = colors.yellow },
+		DiagnosticUnderlineInfo = { undercurl = true, sp = colors.cream },
+		DiagnosticUnderlineHint = { undercurl = true, sp = colors.peach },
 
 		-- Spelling
 		SpellBad = { undercurl = true, sp = colors.red },
@@ -153,6 +158,11 @@ M.setup = function()
 		LazyReasonRuntime = { fg = colors.gray },
 		LazyReasonSource = { fg = colors.orange },
 		LazyReasonStart = { fg = colors.green },
+
+		-- Mason
+		MasonNormal = { fg = colors.fg, bg = colors.bg_dark },
+		MasonHeader = { fg = colors.orange, bold = true },
+		MasonHighlight = { fg = colors.blue },
 
 		-- Snacks Dashboard
 		SnacksDashboardHeader = { fg = colors.orange },

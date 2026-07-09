@@ -29,6 +29,10 @@ M.setup = function()
 		NonText = { fg = colors.gray_dark },
 		Special = { fg = colors.magenta },
 		MatchParen = { fg = colors.cream, bold = true },
+		Statement = { fg = colors.yellow },
+		PreProc = { fg = colors.magenta },
+		Number = { fg = colors.peach },
+		Boolean = { fg = colors.peach },
 
 		-- UI Elements
 		Visual = { bg = colors.gray_darker },
@@ -40,6 +44,11 @@ M.setup = function()
 		WinSeparator = { fg = colors.blue_dark },
 		Folded = { fg = colors.blue, bg = colors.bg_dark },
 		FoldColumn = { fg = colors.gray, bg = colors.magenta },
+		SignColumn = { bg = colors.bg },
+		ColorColumn = { bg = colors.bg_light },
+		ErrorMsg = { fg = colors.red, bold = true },
+		WarningMsg = { fg = colors.yellow, bold = true },
+		ModeMsg = { fg = colors.orange, bold = true },
 
 		-- Statusline / Tabline
 		StatusLine = { fg = colors.fg_dim, bg = colors.bg_dark },
@@ -123,8 +132,10 @@ M.setup = function()
 		-- Treesitter
 		["@variable"] = { fg = colors.orange },
 		["@keyword"] = { fg = colors.yellow },
+		["@constructor"] = { fg = colors.blue },
+		["@constructor.lua"] = { fg = colors.magenta },
 		["@type"] = { fg = colors.blue_light },
-		["@type.builtin"] = { fg = colors.yellow },
+		["@type.builtin"] = { fg = colors.blue_light, italic = true },
 		["@function"] = { fg = colors.blue },
 		["@string"] = { fg = colors.yellow },
 		["@punctuation"] = { fg = colors.magenta },
@@ -134,6 +145,8 @@ M.setup = function()
 		["@tag"] = { fg = colors.blue_light },
 		["@tag.attribute"] = { fg = colors.peach },
 		["@tag.delimiter"] = { fg = colors.magenta },
+		["@module"] = { fg = colors.blue_dark },
+		["@module.builtin"] = { fg = colors.blue_dark, italic = true },
 
 		-- Lazy.nvim
 		LazyNormal = { fg = colors.fg, bg = colors.bg_dark },
@@ -161,7 +174,7 @@ M.setup = function()
 		LazyReasonSource = { fg = colors.orange },
 		LazyReasonStart = { fg = colors.green },
 
-		-- Mason
+		-- mason.nvim
 		MasonNormal = { fg = colors.fg, bg = colors.bg_dark },
 		MasonHeader = { fg = colors.orange, bold = true },
 		MasonHighlight = { fg = colors.blue },
@@ -181,7 +194,7 @@ M.setup = function()
 		SnacksPickerPrompt = { fg = colors.magenta },
 		SnacksPickerTree = { fg = colors.gray_dark },
 		SnacksPickerDirectory = { fg = colors.yellow },
-		SnacksPickerDir = { fg = colors.yellow },
+		SnacksPickerDir = { fg = colors.orange },
 
 		SnacksPickerCursor = { fg = colors.bg, bg = colors.orange },
 		SnacksPickerCursorLine = { bg = colors.bg_light },

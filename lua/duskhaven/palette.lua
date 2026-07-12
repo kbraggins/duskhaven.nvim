@@ -10,7 +10,7 @@ return {
 	magenta = "#ff0cac",
 	blue = "#6b8ab8",
 	blue_light = "#97c7e9",
-	blue_dark = "#314d8a",
+	blue_dark = "#3c5ea9",
 	red = "#e04a5f",
 	green = "#55ba30",
 	peach = "#f5c6b0",

@@ -31,7 +31,7 @@ return function(colors)
 		FloatBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		WinSeparator = { fg = colors.blue_dark },
 		Folded = { fg = colors.blue, bg = colors.bg_dark },
-		FoldColumn = { fg = colors.gray, bg = colors.magenta },
+		FoldColumn = { fg = colors.gray, bg = colors.gray_darker },
 		SignColumn = { bg = colors.bg },
 		ColorColumn = { bg = colors.bg_light },
 		ErrorMsg = { fg = colors.red, bold = true },

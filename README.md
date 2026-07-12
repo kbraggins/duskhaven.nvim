@@ -25,3 +25,56 @@ With **[lazy.nvim](https://github.com/folke/lazy.nvim)**:
   end,
 }
 ```
+
+---
+
+## ⚙️ Configuration
+
+Duskhaven works out of the box with no configuration, but can be customized by passing options to `setup()` before the colorscheme is applied:
+
+```lua
+{
+  "kbraggins/duskhaven.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {
+    -- your customizations here
+    italic = false,
+    bold = false,
+    highlight_overrides = {
+      Comment = { fg = "#7a7f9e", italic = true },
+    },
+  },
+  config = function(_, opts)
+    require("duskhaven").setup(opts)
+    vim.cmd.colorscheme("duskhaven")
+  end,
+}
+```
+
+### Defaults
+
+```lua
+require("duskhaven").setup({
+  -- Set to false to disable italics across all highlight groups.
+  italic = true,
+
+  -- Set to false to disable bold text across all highlight groups.
+  bold = true,
+
+  -- Additional highlight groups to set/override, applied after the
+  -- built-in groups. Uses the same format as `nvim_set_hl`.
+  highlight_overrides = {},
+})
+```
+
+### Overriding highlight groups
+
+```lua
+require("duskhaven").setup({
+  highlight_overrides = {
+    Comment = { fg = "#7a7f9e", italic = true },
+    ["@keyword"] = { fg = "#ff0cac", bold = true },
+  },
+})
+```

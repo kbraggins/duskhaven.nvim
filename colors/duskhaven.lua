@@ -1,1 +1,1 @@
-require("duskhaven").setup()
+require("duskhaven").load()

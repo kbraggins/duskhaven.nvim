@@ -3,9 +3,9 @@ return function(colors)
 		Normal = { fg = colors.fg, bg = colors.bg },
 		NormalFloat = { fg = colors.fg, bg = colors.bg_dark },
 		Comment = { fg = colors.gray },
-		LineNr = { fg = colors.yellow },
+		LineNr = { fg = colors.blue_dark },
 		Cursor = { fg = colors.bg, bg = colors.orange },
-		CursorLineNr = { fg = colors.yellow, bold = true },
+		CursorLineNr = { fg = colors.cream, bold = true },
 		Keyword = { fg = colors.yellow },
 		String = { fg = colors.yellow },
 		EndOfBuffer = { fg = colors.fg, bg = colors.bg },
@@ -21,6 +21,10 @@ return function(colors)
 		PreProc = { fg = colors.magenta },
 		Number = { fg = colors.peach },
 		Boolean = { fg = colors.peach },
+		Label = { fg = colors.yellow },
+		Directory = { fg = colors.blue_light, bold = true },
+		Underlined = { fg = colors.blue_light, underline = true },
+		Todo = { fg = colors.bg, bg = colors.cream, bold = true },
 
 		-- UI Elements
 		Visual = { bg = colors.gray_darker },
@@ -44,6 +48,12 @@ return function(colors)
 		TabLine = { fg = colors.gray, bg = colors.bg_dark },
 		TabLineSel = { fg = colors.fg, bg = colors.bg_light, bold = true },
 		TabLineFill = { bg = colors.bg_dark },
+
+		-- Diff
+		DiffAdd = { fg = colors.green },
+		DiffChange = { fg = colors.cream },
+		DiffDelete = { fg = colors.red },
+		DiffText = { fg = colors.blue_light, bold = true },
 
 		-- Diagnostics
 		DiagnosticError = { fg = colors.red },

@@ -163,7 +163,7 @@ return function(colors)
 		TelescopeNormal = { fg = colors.fg, bg = colors.bg_dark },
 		TelescopeBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		TelescopePromptNormal = { fg = colors.fg, bg = colors.bg_light },
-		TelescopePromptBorder = { fg = colors.bg_light, bg = colors.bg_light },
+		TelescopePromptBorder = { fg = colors.blue_light, bg = colors.bg_light },
 		TelescopeSelection = { fg = colors.fg, bg = colors.bg_light, bold = true },
 		TelescopeMatching = { fg = colors.blue_light, bold = true },
 

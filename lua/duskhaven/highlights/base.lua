@@ -5,7 +5,7 @@ return function(colors)
 		Comment = { fg = colors.gray },
 		LineNr = { fg = colors.blue_dark },
 		Cursor = { fg = colors.bg, bg = colors.orange },
-		CursorLineNr = { fg = colors.cream, bold = true },
+		CursorLineNr = { fg = colors.blue_light, bold = true },
 		Keyword = { fg = colors.yellow },
 		String = { fg = colors.yellow },
 		EndOfBuffer = { fg = colors.fg, bg = colors.bg },

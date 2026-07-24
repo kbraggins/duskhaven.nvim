@@ -31,8 +31,8 @@ The name comes from the palette itself: a deep navy-black sky (`bg`), a warm sun
 | `blue_dark` | `#3c5ea9` |
 | `red` | `#e04a5f` |
 | `green` | `#55ba30` |
-| `peach` | `#f5c6b0` |
-| `cream` | `#f8e9c7` |
+| `peach` | `#ea9a86` |
+| `cream` | `#eadbb8` |
 | `gray` / `gray_dark` / `gray_darker` | `#a4a7a7` / `#505257` / `#35384a` |
 
 ---

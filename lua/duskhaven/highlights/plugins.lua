@@ -4,7 +4,7 @@ return function(colors)
 		LazyNormal = { fg = colors.fg, bg = colors.bg_dark },
 		LazyBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		LazyButton = { fg = colors.fg, bg = colors.bg_light },
-		LazyButtonActive = { fg = colors.fg, bg = colors.blue_light, bold = true },
+		LazyButtonActive = { fg = colors.bg, bg = colors.blue_light, bold = true },
 
 		LazyH1 = { fg = colors.orange, bold = true }, -- Main title
 		LazyH2 = { fg = colors.blue_light, bold = true }, -- Section headers

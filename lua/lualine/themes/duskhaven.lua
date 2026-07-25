@@ -1,4 +1,4 @@
-local colors = require("duskhaven.palette")
+local colors = require("duskhaven.config").colors()
 
 return {
 	normal = {

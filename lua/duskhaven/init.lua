@@ -1,6 +1,5 @@
 local M = {}
 
-local colors = require("duskhaven.palette")
 local config = require("duskhaven.config")
 
 -- Merge user options and (re)apply the colorscheme immediately if it's
@@ -20,6 +19,8 @@ M.load = function()
 	end
 
 	vim.g.colors_name = "duskhaven"
+
+	local colors = config.colors()
 
 	-- Highlight groups
 	local highlights = {
@@ -45,6 +46,8 @@ M.load = function()
 		vim.api.nvim_set_hl(0, name, hl)
 	end
 end
+
+M.colors = config.colors
 
 -- Auto-setup when selected
 vim.api.nvim_create_autocmd("ColorScheme", {

@@ -93,11 +93,34 @@ require("duskhaven").setup({
   -- Set to false to disable bold text across all highlight groups.
   bold = true,
 
+  -- Override individual palette colors. Merged over the base palette before
+  -- any highlight group is built.
+  palette = {},
+
   -- Additional highlight groups to set/override, applied after the
   -- built-in groups. Uses the same format as `nvim_set_hl`.
   highlight_overrides = {},
 })
 ```
+
+### Overriding palette colors
+
+Use `palette` when you want to change a *color* rather than one specific group.
+A single entry retints every highlight that uses it — including the bundled
+lualine theme:
+
+```lua
+require("duskhaven").setup({
+  palette = {
+    orange = "#ff8c42",
+    bg = "#0a0d1c",
+  },
+})
+```
+
+Any key from the [palette table](#-palette) can be overridden. The resolved
+palette is available as `require("duskhaven").colors()` if you want to build
+matching highlights of your own.
 
 ### Overriding highlight groups
 

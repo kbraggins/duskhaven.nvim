@@ -2,19 +2,19 @@ local M = {}
 
 local config = require("duskhaven.config")
 
--- Merge user options and (re)apply the colorscheme immediately if it's
--- already active, so live config changes take effect without re-running
--- `:colorscheme duskhaven`.
+-- Merge user options and reload the colorscheme through Neovim's normal
+-- lifecycle when it is already active. This also lets dependent plugins
+-- respond to the ColorScheme event.
 M.setup = function(opts)
 	config.setup(opts)
 	if vim.g.colors_name == "duskhaven" then
-		M.load()
+		vim.cmd.colorscheme("duskhaven")
 	end
 end
 
 M.load = function()
 	vim.cmd([[hi clear]])
-	if vim.fn.exists("syntax_on") then
+	if vim.fn.exists("syntax_on") == 1 then
 		vim.cmd("syntax reset")
 	end
 
@@ -48,11 +48,5 @@ M.load = function()
 end
 
 M.colors = config.colors
-
--- Auto-setup when selected
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "duskhaven",
-	callback = M.load,
-})
 
 return M

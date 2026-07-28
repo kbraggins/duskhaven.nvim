@@ -29,10 +29,26 @@ return function(colors)
 
 		BlinkCmpLabel = { fg = colors.fg },
 		BlinkCmpLabelMatch = { fg = colors.blue_light, bold = true },
+		BlinkCmpLabelDeprecated = { fg = colors.gray, strikethrough = true },
 		BlinkCmpLabelDetail = { fg = colors.fg_dim },
+		BlinkCmpLabelDescription = { fg = colors.fg_dim },
+		BlinkCmpSource = { fg = colors.fg_dim },
+		BlinkCmpGhostText = { fg = colors.gray, italic = true },
 
 		BlinkCmpMenu = { fg = colors.fg, bg = colors.bg_dark },
+		BlinkCmpMenuBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		BlinkCmpMenuSelection = { fg = colors.fg, bg = colors.bg_light, bold = true },
+		BlinkCmpScrollBarGutter = { bg = colors.bg_dark },
+		BlinkCmpScrollBarThumb = { bg = colors.gray_dark },
+
+		BlinkCmpDoc = { fg = colors.fg, bg = colors.bg_dark },
+		BlinkCmpDocBorder = { fg = colors.blue_light, bg = colors.bg_dark },
+		BlinkCmpDocSeparator = { fg = colors.gray_dark, bg = colors.bg_dark },
+		BlinkCmpDocCursorLine = { bg = colors.bg_light },
+
+		BlinkCmpSignatureHelp = { fg = colors.fg, bg = colors.bg_dark },
+		BlinkCmpSignatureHelpBorder = { fg = colors.blue_light, bg = colors.bg_dark },
+		BlinkCmpSignatureHelpActiveParameter = { fg = colors.orange, bold = true },
 
 		BlinkCmpKind = { fg = colors.blue },
 		BlinkCmpKindMethod = { fg = colors.blue },

@@ -43,14 +43,16 @@ return function(colors)
 		SnacksPicker = { fg = colors.fg, bg = colors.bg_dark },
 		SnacksPickerBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		SnacksPickerTitle = { fg = colors.orange, bold = true },
+		SnacksPickerFooter = { fg = colors.gray },
 		SnacksPickerPrompt = { fg = colors.magenta },
 		SnacksPickerTree = { fg = colors.gray_dark },
 		SnacksPickerDirectory = { fg = colors.yellow },
 		SnacksPickerDir = { fg = colors.yellow },
+		SnacksPickerFile = { fg = colors.fg },
+		SnacksPickerPathHidden = { fg = colors.gray_dark },
+		SnacksPickerPathIgnored = { fg = colors.gray_dark },
 
-		SnacksPickerCursor = { fg = colors.bg, bg = colors.orange },
 		SnacksPickerCursorLine = { bg = colors.bg_light },
-		SnacksPickerCursorLineNr = { fg = colors.yellow, bold = true },
 
 		SnacksPickerMatch = { fg = colors.blue_light, bold = true },
 		SnacksPickerSelected = { fg = colors.fg, bg = colors.bg_light, bold = true },
@@ -59,43 +61,38 @@ return function(colors)
 		SnacksPickerGitStatusUntracked = { fg = colors.green, italic = true },
 		SnacksPickerGitStatusModified = { fg = colors.cream },
 		SnacksPickerGitStatusDeleted = { fg = colors.red },
+		SnacksPickerGitStatusRenamed = { fg = colors.blue_light },
+		SnacksPickerGitStatusCopied = { fg = colors.blue_light },
+		SnacksPickerGitStatusUnmerged = { fg = colors.red, bold = true },
+		SnacksPickerGitStatusStaged = { fg = colors.green },
 		SnacksPickerGitStatusIgnored = { fg = colors.gray_dark },
 
 		-- Snacks Preview window in picker
 		SnacksPickerPreview = { fg = colors.fg, bg = colors.bg_dark },
 		SnacksPickerPreviewBorder = { fg = colors.blue_light, bg = colors.bg_dark },
 		SnacksPickerPreviewTitle = { fg = colors.orange, bold = true },
+		SnacksPickerPreviewFooter = { fg = colors.gray },
+		SnacksPickerPreviewCursorLine = { bg = colors.bg_light },
 
 		-- Snacks Input / Search bar
 		SnacksPickerInput = { fg = colors.fg, bg = colors.bg_dark },
 		SnacksPickerInputBorder = { fg = colors.orange, bg = colors.bg_dark },
+		SnacksPickerInputTitle = { fg = colors.orange, bold = true },
+		SnacksPickerInputFooter = { fg = colors.gray },
+		SnacksPickerInputCursorLine = { bg = colors.bg_light },
 
-		-- Snacks Help / Footer
-		SnacksPickerHelp = { fg = colors.fg_dim },
-		SnacksPickerHelpBorder = { fg = colors.gray },
+		-- Snacks List / Box windows
+		SnacksPickerList = { fg = colors.fg, bg = colors.bg_dark },
+		SnacksPickerListBorder = { fg = colors.blue_light, bg = colors.bg_dark },
+		SnacksPickerListTitle = { fg = colors.orange, bold = true },
+		SnacksPickerListFooter = { fg = colors.gray },
+		SnacksPickerListCursorLine = { bg = colors.bg_light },
 
-		-- Snacks Explorer
-		SnacksExplorer = { fg = colors.fg, bg = colors.bg_dark },
-		SnacksExplorerBorder = { fg = colors.blue_light, bg = colors.bg_dark },
-
-		SnacksExplorerDir = { fg = colors.yellow, bold = true },
-		SnacksExplorerFile = { fg = colors.fg },
-		SnacksExplorerFileOpened = { fg = colors.blue, bold = true },
-		SnacksExplorerHidden = { fg = colors.gray_dark },
-		SnacksExplorerRoot = { fg = colors.magenta, bold = true },
-
-		SnacksExplorerIndent = { fg = colors.gray_dark },
-		SnacksExplorerExpander = { fg = colors.gray },
-
-		SnacksExplorerGitAdded = { fg = colors.green },
-		SnacksExplorerGitUntracked = { fg = colors.green, italic = true },
-		SnacksExplorerGitModified = { fg = colors.cream },
-		SnacksExplorerGitDeleted = { fg = colors.red },
-		SnacksExplorerGitIgnored = { fg = colors.gray_dark },
-
-		SnacksExplorerCursor = { fg = colors.fg, bg = colors.bg_light, bold = true },
-		SnacksExplorerCursorLine = { bg = colors.bg_light },
-		SnacksExplorerCursorLineNr = { fg = colors.yellow, bold = true },
+		SnacksPickerBox = { fg = colors.fg, bg = colors.bg_dark },
+		SnacksPickerBoxBorder = { fg = colors.blue_light, bg = colors.bg_dark },
+		SnacksPickerBoxTitle = { fg = colors.orange, bold = true },
+		SnacksPickerBoxFooter = { fg = colors.gray },
+		SnacksPickerBoxCursorLine = { bg = colors.bg_light },
 
 		-- neo-tree.nvim
 		NeoTreeDirectoryName = { fg = colors.yellow, bold = true },

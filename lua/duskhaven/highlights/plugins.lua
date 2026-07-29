@@ -131,7 +131,7 @@ return function(colors)
 
 		FzfLuaCursor = { fg = colors.bg, bg = colors.orange },
 		FzfLuaCursorLine = { bg = colors.bg_light },
-		FzfLuaCursorLineNr = { fg = colors.yellow, bold = true },
+		FzfLuaCursorLineNr = { fg = colors.blue_light, bold = true },
 
 		FzfLuaSearch = { fg = colors.bg, bg = colors.yellow },
 		FzfLuaMatch = { fg = colors.blue_light, bold = true },
@@ -152,7 +152,7 @@ return function(colors)
 		FzfLuaGitChange = { fg = colors.cream },
 
 		-- fzf-lua Icons / Kinds
-		FzfLuaDir = { fg = colors.blue_light, bold = true },
+		FzfLuaDir = { fg = colors.yellow, bold = true },
 		FzfLuaFile = { fg = colors.fg },
 		FzfLuaSymlink = { fg = colors.peach },
 

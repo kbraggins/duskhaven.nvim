@@ -19,4 +19,11 @@ return {
 	gray_dark = "#505257",
 	gray_darker = "#35384a",
 	black = "#272822",
+
+	-- Diff backgrounds. Kept dark enough that syntax highlighting stays
+	-- readable on top of them, since diff mode bands whole lines.
+	diff_add = "#14301c",
+	diff_delete = "#3a1721",
+	diff_change = "#16233d",
+	diff_text = "#223a63",
 }

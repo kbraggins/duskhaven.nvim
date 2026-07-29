@@ -34,6 +34,9 @@ The name comes from the palette itself: a deep navy-black sky (`bg`), a warm sun
 | `peach` | `#ea9a86` |
 | `cream` | `#eadbb8` |
 | `gray` / `gray_dark` / `gray_darker` | `#a4a7a7` / `#505257` / `#35384a` |
+| `black` | `#272822` |
+| `diff_add` / `diff_change` | `#14301c` / `#16233d` |
+| `diff_delete` / `diff_text` | `#3a1721` / `#223a63` |
 
 ---
 
@@ -98,7 +101,8 @@ require("duskhaven").setup({
   palette = {},
 
   -- Additional highlight groups to set/override, applied after the
-  -- built-in groups. Uses the same format as `nvim_set_hl`.
+  -- built-in groups. Uses the same format as `nvim_set_hl`. These are set
+  -- verbatim and are not affected by the `italic` / `bold` options above.
   highlight_overrides = {},
 })
 ```

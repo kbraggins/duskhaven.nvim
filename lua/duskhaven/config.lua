@@ -8,11 +8,16 @@ M.defaults = {
 	bold = true,
 
 	-- Override individual palette colors. Merged over the base palette before
+	-- any highlight group is built, so a change here applies theme-wide:
 	--
 	--   palette = { orange = "#ff8c42" }
 	palette = {},
 
-	-- Additional highlight groups to set/override, applied after the
+	-- Additional highlight groups to set/override, applied after the theme's
+	-- own groups. These are set verbatim and are not subject to the `italic`
+	-- and `bold` options above:
+	--
+	--   highlight_overrides = { Comment = { fg = "#7a7a7a", italic = true } }
 	highlight_overrides = {},
 }
 

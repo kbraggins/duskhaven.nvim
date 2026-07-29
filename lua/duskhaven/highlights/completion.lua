@@ -1,6 +1,23 @@
 return function(colors)
 	return {
-		-- Completion Menu (Cmp + Blink)
+		-- Default
+		Pmenu = { fg = colors.fg, bg = colors.bg_dark },
+		PmenuSel = { fg = colors.fg, bg = colors.bg_light, bold = true },
+		PmenuKind = { fg = colors.blue, bg = colors.bg_dark },
+		PmenuKindSel = { fg = colors.blue_light, bg = colors.bg_light },
+		PmenuExtra = { fg = colors.fg_dim, bg = colors.bg_dark },
+		PmenuExtraSel = { fg = colors.fg_dim, bg = colors.bg_light },
+		PmenuSbar = { bg = colors.bg_dark },
+		PmenuBorder = { fg = colors.blue_light, bg = colors.bg_dark },
+		PmenuThumb = { bg = colors.gray_dark },
+		PmenuMatch = { fg = colors.blue_light, bold = true },
+		PmenuMatchSel = { fg = colors.blue_light, bg = colors.bg_light, bold = true },
+		PmenuShadow = { bg = colors.bg_dark },
+		PmenuShadowThrough = { bg = colors.bg_light },
+		ComplMatchIns = { fg = colors.blue_light },
+		PreInsert = { fg = colors.gray_dark },
+
+		-- Cmp + Blink
 		CmpItemAbbr = { fg = colors.fg },
 		CmpItemAbbrDeprecated = { fg = colors.gray, strikethrough = true },
 		CmpItemAbbrMatch = { fg = colors.blue_light, bold = true },

@@ -13,6 +13,17 @@ M.setup = function(opts)
 end
 
 M.load = function()
+	-- Clear `colors_name` first: changing 'background' re-runs `:colorscheme`
+	-- for the active scheme, which would recurse back into this function.
+	vim.g.colors_name = nil
+
+	-- duskhaven is a dark theme. Without this, a user running `background=light`
+	-- gets Neovim's light-mode defaults for every group the theme leaves unset,
+	-- which lands dark-on-dark
+	if vim.o.background ~= "dark" then
+		vim.o.background = "dark"
+	end
+
 	vim.cmd([[hi clear]])
 	if vim.fn.exists("syntax_on") == 1 then
 		vim.cmd("syntax reset")
@@ -21,6 +32,10 @@ M.load = function()
 	vim.g.colors_name = "duskhaven"
 
 	local colors = config.colors()
+
+	for i, color in ipairs(require("duskhaven.terminal")(colors)) do
+		vim.g["terminal_color_" .. (i - 1)] = color
+	end
 
 	-- Highlight groups
 	local highlights = {
@@ -45,6 +60,10 @@ M.load = function()
 	for name, hl in pairs(config.options.highlight_overrides) do
 		vim.api.nvim_set_hl(0, name, hl)
 	end
+
+	-- The lualine theme resolves the palette at require-time, so drop it from
+	-- the module cache to make sure a re-require picks up palette overrides.
+	package.loaded["lualine.themes.duskhaven"] = nil
 end
 
 M.colors = config.colors

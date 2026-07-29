@@ -40,7 +40,7 @@ return function(colors)
 		Float = { fg = colors.peach },
 		Boolean = { fg = colors.peach },
 		Label = { fg = colors.yellow },
-		Directory = { fg = colors.blue_light, bold = true },
+		Directory = { fg = colors.yellow, bold = true },
 		Underlined = { fg = colors.blue_light, underline = true },
 		Bold = { bold = true },
 		Italic = { italic = true },
@@ -51,6 +51,9 @@ return function(colors)
 		-- UI Elements
 		Visual = { bg = colors.gray_darker },
 		CursorLine = { bg = colors.bg_light },
+		CursorColumn = { bg = colors.bg_light },
+		TermCursor = { fg = colors.bg, bg = colors.orange },
+		lCursor = { fg = colors.bg, bg = colors.orange },
 		CursorLineSign = { bg = colors.bg_light },
 		CursorLineFold = { fg = colors.gray, bg = colors.bg_light },
 		Search = { fg = colors.bg, bg = colors.yellow },
@@ -86,10 +89,10 @@ return function(colors)
 		TabLineFill = { bg = colors.bg_dark },
 
 		-- Diff
-		DiffAdd = { fg = colors.green },
-		DiffChange = { fg = colors.cream },
-		DiffDelete = { fg = colors.red },
-		DiffText = { fg = colors.blue_light, bold = true },
+		DiffAdd = { bg = colors.diff_add },
+		DiffChange = { bg = colors.diff_change },
+		DiffDelete = { fg = colors.red, bg = colors.diff_delete },
+		DiffText = { bg = colors.diff_text, bold = true },
 		Added = { fg = colors.green },
 		Changed = { fg = colors.cream },
 		Removed = { fg = colors.red },
@@ -107,25 +110,19 @@ return function(colors)
 		DiagnosticUnderlineInfo = { undercurl = true, sp = colors.cream },
 		DiagnosticUnderlineHint = { undercurl = true, sp = colors.peach },
 
+		-- LSP
+		LspReferenceText = { bold = true, sp = colors.blue },
+		LspReferenceRead = { bold = true, sp = colors.green },
+		LspReferenceWrite = { bold = true, sp = colors.orange },
+		LspInlayHint = { fg = colors.gray, italic = true },
+		LspCodeLens = { fg = colors.gray, italic = true },
+		LspCodeLensSeparator = { fg = colors.gray_dark },
+		LspSignatureActiveParameter = { fg = colors.orange, bold = true },
+
 		-- Spelling
 		SpellBad = { undercurl = true, sp = colors.red },
 		SpellRare = { undercurl = true, sp = colors.magenta },
 		SpellCap = { undercurl = true, sp = colors.blue_light },
 		SpellLocal = { undercurl = true, sp = colors.green },
-
-		-- Completion Menu
-		Pmenu = { fg = colors.fg, bg = colors.bg_dark },
-		PmenuSel = { fg = colors.fg, bg = colors.bg_light, bold = true },
-		PmenuKind = { fg = colors.blue, bg = colors.bg_dark },
-		PmenuKindSel = { fg = colors.blue_light, bg = colors.bg_light },
-		PmenuExtra = { fg = colors.fg_dim, bg = colors.bg_dark },
-		PmenuExtraSel = { fg = colors.fg_dim, bg = colors.bg_light },
-		PmenuSbar = { bg = colors.bg_dark },
-		PmenuBorder = { fg = colors.blue_light, bg = colors.bg_dark },
-		PmenuThumb = { bg = colors.gray_dark },
-		PmenuMatch = { fg = colors.blue_light, bold = true },
-		PmenuMatchSel = { fg = colors.blue_light, bg = colors.bg_light, bold = true },
-		PmenuShadow = { bg = colors.bg_dark },
-		PmenuShadowThrough = { bg = colors.bg_light },
 	}
 end

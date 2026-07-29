@@ -7,6 +7,11 @@ M.defaults = {
 	-- Set to false to disable bold text across all highlight groups.
 	bold = true,
 
+	-- Set to true to drop the background from the editor surface so a
+	-- transparent terminal shows through. Floats, popups and pickers keep
+	-- their background on purpose
+	transparent = false,
+
 	-- Override individual palette colors. Merged over the base palette before
 	-- any highlight group is built, so a change here applies theme-wide:
 	--

@@ -1,34 +1,40 @@
-local colors = require("duskhaven.config").colors()
+local config = require("duskhaven.config")
+local colors = config.colors()
+
+-- The `c` fill and the inactive sections drop their background when
+-- `transparent = true`, so the terminal shows through the statusline. The `a`
+-- (mode) and `b` sections keep their colours -- they read as solid chips.
+local fill = config.options.transparent and "none" or colors.bg_dark
 
 return {
 	normal = {
 		a = { bg = colors.orange, fg = colors.bg, gui = "bold" },
 		b = { bg = colors.gray_darker, fg = colors.fg },
-		c = { bg = colors.bg_dark, fg = colors.gray },
+		c = { bg = fill, fg = colors.gray },
 	},
 	insert = {
 		a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
 		b = { bg = colors.gray_darker, fg = colors.fg },
-		c = { bg = colors.bg_dark, fg = colors.gray },
+		c = { bg = fill, fg = colors.gray },
 	},
 	visual = {
 		a = { bg = colors.magenta, fg = colors.bg, gui = "bold" },
 		b = { bg = colors.gray_darker, fg = colors.fg },
-		c = { bg = colors.bg_dark, fg = colors.gray },
+		c = { bg = fill, fg = colors.gray },
 	},
 	replace = {
 		a = { bg = colors.red, fg = colors.bg, gui = "bold" },
 		b = { bg = colors.gray_darker, fg = colors.fg },
-		c = { bg = colors.bg_dark, fg = colors.gray },
+		c = { bg = fill, fg = colors.gray },
 	},
 	command = {
 		a = { bg = colors.peach, fg = colors.bg, gui = "bold" },
 		b = { bg = colors.gray_darker, fg = colors.fg },
-		c = { bg = colors.bg_dark, fg = colors.gray },
+		c = { bg = fill, fg = colors.gray },
 	},
 	inactive = {
-		a = { bg = colors.bg_dark, fg = colors.gray, gui = "bold" },
-		b = { bg = colors.bg_dark, fg = colors.gray },
-		c = { bg = colors.bg_dark, fg = colors.gray },
+		a = { bg = fill, fg = colors.gray, gui = "bold" },
+		b = { bg = fill, fg = colors.gray },
+		c = { bg = fill, fg = colors.gray },
 	},
 }

@@ -16,27 +16,27 @@ The name comes from the palette itself: a deep navy-black sky (`bg`), a warm sun
 
 ## 🎨 Palette
 
-| Color | Hex |
-| --- | --- |
-| `bg` | `#0c1021` |
-| `bg_dark` | `#0a0d1a` |
-| `bg_light` | `#1a1f35` |
-| `fg` | `#fdfff1` |
-| `fg_dim` | `#d8d9c8` |
-| `orange` | `#f25e01` |
-| `yellow` | `#b3f63a` |
-| `magenta` | `#ff0cac` |
-| `blue` | `#6b8ab8` |
-| `blue_light` | `#97c7e9` |
-| `blue_dark` | `#3c5ea9` |
-| `red` | `#e04a5f` |
-| `green` | `#55ba30` |
-| `peach` | `#ea9a86` |
-| `cream` | `#eadbb8` |
+| Color                                | Hex                               |
+| ------------------------------------ | --------------------------------- |
+| `bg`                                 | `#0c1021`                         |
+| `bg_dark`                            | `#0a0d1a`                         |
+| `bg_light`                           | `#1a1f35`                         |
+| `fg`                                 | `#fdfff1`                         |
+| `fg_dim`                             | `#d8d9c8`                         |
+| `orange`                             | `#f25e01`                         |
+| `yellow`                             | `#b3f63a`                         |
+| `magenta`                            | `#ff0cac`                         |
+| `blue`                               | `#6b8ab8`                         |
+| `blue_light`                         | `#97c7e9`                         |
+| `blue_dark`                          | `#3c5ea9`                         |
+| `red`                                | `#e04a5f`                         |
+| `green`                              | `#55ba30`                         |
+| `peach`                              | `#ea9a86`                         |
+| `cream`                              | `#eadbb8`                         |
 | `gray` / `gray_dark` / `gray_darker` | `#a4a7a7` / `#505257` / `#35384a` |
-| `black` | `#272822` |
-| `diff_add` / `diff_change` | `#14301c` / `#16233d` |
-| `diff_delete` / `diff_text` | `#3a1721` / `#223a63` |
+| `black`                              | `#272822`                         |
+| `diff_add` / `diff_change`           | `#14301c` / `#16233d`             |
+| `diff_delete` / `diff_text`          | `#3a1721` / `#223a63`             |
 
 ---
 
@@ -64,7 +64,9 @@ With **[lazy.nvim](https://github.com/folke/lazy.nvim)**:
 
 ## ⚙️ Configuration
 
-Duskhaven works out of the box with no configuration, but can be customized by passing options to `setup()` before the colorscheme is applied:
+Duskhaven works out of the box with no configuration, but can be customized by passing options to `setup()` before the colorscheme is applied.
+
+Copy this as-is for the stock theme, then uncomment only the options you want to change — see [Defaults](#defaults) for more info:
 
 ```lua
 {
@@ -72,12 +74,16 @@ Duskhaven works out of the box with no configuration, but can be customized by p
   lazy = false,
   priority = 1000,
   opts = {
-    -- your customizations here
-    italic = false,
-    bold = false,
-    highlight_overrides = {
-      Comment = { fg = "#7a7f9e", italic = true },
-    },
+    -- Every option is customizable; an empty table gives you the defaults.
+    -- Uncomment a line to override.
+    --
+    -- italic = false,
+    -- bold = false,
+    -- transparent = true,
+    -- palette = { orange = "#ff8c42" },
+    -- highlight_overrides = {
+    --   Comment = { fg = "#7a7f9e", italic = true },
+    -- },
   },
   config = function(_, opts)
     require("duskhaven").setup(opts)
@@ -96,6 +102,10 @@ require("duskhaven").setup({
   -- Set to false to disable bold text across all highlight groups.
   bold = true,
 
+  -- Set to true to drop the background from the editor surface to
+  -- support transparent terminals. Floats and popups stay opaque.
+  transparent = false,
+
   -- Override individual palette colors. Merged over the base palette before
   -- any highlight group is built.
   palette = {},
@@ -109,7 +119,7 @@ require("duskhaven").setup({
 
 ### Overriding palette colors
 
-Use `palette` when you want to change a *color* rather than one specific group.
+Use `palette` when you want to change a _color_ rather than one specific group.
 A single entry retints every highlight that uses it — including the bundled
 lualine theme:
 

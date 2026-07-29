@@ -45,6 +45,14 @@ M.load = function()
 		require("duskhaven.highlights.plugins")(colors),
 	}
 
+	-- Lookup of the groups whose background is dropped for `transparent = true`.
+	local transparent = {}
+	if config.options.transparent then
+		for _, name in ipairs(require("duskhaven.transparency")) do
+			transparent[name] = true
+		end
+	end
+
 	for _, group in ipairs(highlights) do
 		for name, hl in pairs(group) do
 			if not config.options.italic then
@@ -52,6 +60,9 @@ M.load = function()
 			end
 			if not config.options.bold then
 				hl.bold = nil
+			end
+			if transparent[name] then
+				hl.bg = nil
 			end
 			vim.api.nvim_set_hl(0, name, hl)
 		end

@@ -2,6 +2,8 @@ return function(colors)
 	return {
 		["@variable"] = { fg = colors.orange },
 		["@variable.parameter.builtin"] = { fg = colors.orange, italic = true },
+		["@variable.member"] = { fg = colors.blue_light },
+		["@property"] = { fg = colors.blue_light },
 		["@keyword"] = { fg = colors.yellow },
 		["@keyword.directive"] = { fg = colors.magenta },
 		["@constructor"] = { fg = colors.blue },
@@ -61,6 +63,7 @@ return function(colors)
 		["@tag.attribute"] = { fg = colors.peach },
 		["@tag.delimiter"] = { fg = colors.magenta },
 		["@module"] = { fg = colors.blue_dark },
+		["@module.builtin"] = { fg = colors.blue_dark, italic = true },
 
 		-- LSP semantic tokens
 		["@lsp.type.class"] = { fg = colors.blue_light },
@@ -76,6 +79,7 @@ return function(colors)
 		["@lsp.type.number"] = { fg = colors.peach },
 		["@lsp.type.operator"] = { fg = colors.magenta },
 		["@lsp.type.parameter"] = { fg = colors.orange },
+		["@lsp.type.property"] = { fg = colors.blue_light },
 		["@lsp.type.regexp"] = { fg = colors.magenta },
 		["@lsp.type.string"] = { fg = colors.yellow },
 		["@lsp.type.struct"] = { fg = colors.blue_light },
@@ -83,9 +87,14 @@ return function(colors)
 		["@lsp.type.typeParameter"] = { fg = colors.blue_light },
 		["@lsp.type.variable"] = { fg = colors.orange },
 		["@lsp.mod.deprecated"] = { strikethrough = true },
-		["@module.builtin"] = { fg = colors.blue_dark, italic = true },
+		["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
+		["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+		["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+		["@lsp.typemod.type.defaultLibrary"] = { link = "@type.builtin" },
+		["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
 
 		-- Neovim 0.9 / older nvim-treesitter highlights
 		["@namespace"] = { fg = colors.blue_dark },
+		["@field"] = { fg = colors.blue_light },
 	}
 end

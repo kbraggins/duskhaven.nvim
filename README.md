@@ -58,7 +58,7 @@ With **[lazy.nvim](https://github.com/folke/lazy.nvim)**:
 ### Requirements
 
 - Neovim >= 0.9
-- A terminal with true color support, with `vim.o.termguicolors = true` set (LazyVim enables this by default).
+- A terminal with true color support, with `vim.o.termguicolors = true` set (LazyVim enables this by default). Duskhaven warns on load if it is off.
 
 ---
 
@@ -111,8 +111,9 @@ require("duskhaven").setup({
   palette = {},
 
   -- Additional highlight groups to set/override, applied after the
-  -- built-in groups. Uses the same format as `nvim_set_hl`. These are set
-  -- verbatim and are not affected by the `italic` / `bold` options above.
+  -- built-in groups. Uses the same format as `nvim_set_hl`. An override is
+  -- merged over the theme's own definition of that group, and is not
+  -- affected by the `italic` / `bold` options above.
   highlight_overrides = {},
 })
 ```
@@ -146,6 +147,24 @@ require("duskhaven").setup({
   },
 })
 ```
+
+Overrides are merged over the theme's definition of the same group, so an
+override only has to name what it wants to change — everything it leaves out is
+inherited:
+
+```lua
+require("duskhaven").setup({
+  highlight_overrides = {
+    -- Keeps duskhaven's comment color, just adds the italics.
+    Comment = { italic = true },
+  },
+})
+```
+
+Groups the theme does not define are set as-is, so this is also the place to
+add highlights for a plugin duskhaven does not cover yet. An override that sets
+`link` replaces the group outright, since a linked group cannot carry its own
+attributes.
 
 ---
 

@@ -79,8 +79,16 @@ M.load = function()
 	-- `{ Comment = { italic = true } }` would drop the theme's foreground. Merge
 	-- here instead: whatever the override states wins, and anything it leaves
 	-- out is inherited from the theme.
+	local builtins = vim.deepcopy(groups)
+	local function resolve_builtin(name)
+		local hl = builtins[name]
+		if hl and hl.link then
+			return resolve_builtin(hl.link)
+		end
+		return hl
+	end
 	for name, override in pairs(config.options.highlight_overrides) do
-		local base = groups[name]
+		local base = resolve_builtin(name)
 		if base and not override.link then
 			groups[name] = vim.tbl_extend("force", base, override)
 			-- A linked group cannot carry its own attributes, so an override

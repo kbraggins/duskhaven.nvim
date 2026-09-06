@@ -164,7 +164,12 @@ require("duskhaven").setup({
 Groups the theme does not define are set as-is, so this is also the place to
 add highlights for a plugin duskhaven does not cover yet. An override that sets
 `link` replaces the group outright, since a linked group cannot carry its own
-attributes.
+attributes. Partial overrides of built-in linked groups inherit the target's
+built-in colors and styles before applying your changes.
+
+`setup()` validates option types, palette colors, and highlight definitions
+before reloading. Invalid configuration raises an error naming the option and
+leaves the previous configuration and active highlights intact.
 
 ---
 

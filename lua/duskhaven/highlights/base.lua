@@ -113,9 +113,9 @@ return function(colors)
 		DiagnosticUnderlineHint = { undercurl = true, sp = colors.peach },
 
 		-- LSP
-		LspReferenceText = { bold = true },
-		LspReferenceRead = { bold = true },
-		LspReferenceWrite = { bold = true },
+		LspReferenceText = { bg = colors.bg_light, bold = true },
+		LspReferenceRead = { bg = colors.bg_light, bold = true },
+		LspReferenceWrite = { bg = colors.bg_light, bold = true },
 		LspInlayHint = { fg = colors.gray, italic = true },
 		LspCodeLens = { fg = colors.gray, italic = true },
 		LspCodeLensSeparator = { fg = colors.gray_dark },

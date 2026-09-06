@@ -53,9 +53,46 @@ local function warn_unknown_palette_keys(palette)
 	end
 end
 
+local validation_ns
+
+local function expect(value, kind, path)
+	if type(value) ~= kind then
+		error(("duskhaven: %s must be a %s"):format(path, kind), 3)
+	end
+end
+
 M.setup = function(opts)
-	M.options = vim.tbl_deep_extend("force", vim.deepcopy(M.defaults), opts or {})
-	warn_unknown_palette_keys(M.options.palette)
+	if opts == nil then
+		opts = {}
+	end
+	expect(opts, "table", "options")
+	local options = vim.tbl_deep_extend("force", vim.deepcopy(M.defaults), opts)
+	for _, name in ipairs({ "italic", "bold", "transparent" }) do
+		expect(options[name], "boolean", name)
+	end
+	expect(options.palette, "table", "palette")
+	for name, color in pairs(options.palette) do
+		expect(name, "string", "palette key")
+		expect(color, "string", "palette." .. name)
+		if (color:sub(1, 1) == "#" and not color:match("^#%x%x%x%x%x%x$"))
+			or vim.api.nvim_get_color_by_name(color) == -1 then
+			error(("duskhaven: palette.%s has invalid color %q"):format(name, color), 2)
+		end
+	end
+	expect(options.highlight_overrides, "table", "highlight_overrides")
+	-- Let Neovim validate its own highlight API in an inactive namespace,
+	-- before committing options or clearing the currently active colorscheme.
+	validation_ns = validation_ns or vim.api.nvim_create_namespace("duskhaven.validation")
+	for name, hl in pairs(options.highlight_overrides) do
+		expect(name, "string", "highlight_overrides key")
+		expect(hl, "table", "highlight_overrides." .. name)
+		local ok, err = pcall(vim.api.nvim_set_hl, validation_ns, name, hl)
+		if not ok then
+			error(("duskhaven: highlight_overrides.%s: %s"):format(name, err), 2)
+		end
+	end
+	warn_unknown_palette_keys(options.palette)
+	M.options = options
 end
 
 --- The base palette with any user overrides merged in.

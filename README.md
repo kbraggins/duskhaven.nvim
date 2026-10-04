@@ -96,14 +96,18 @@ Copy this as-is for the stock theme, then uncomment only the options you want to
 
 ```lua
 require("duskhaven").setup({
-  -- Set to false to disable italics across all highlight groups.
+  -- Set to false to disable italics across all highlight groups. Markup
+  -- emphasis (e.g. *italic* in markdown) is kept.
   italic = true,
 
-  -- Set to false to disable bold text across all highlight groups.
+  -- Set to false to disable bold text across all highlight groups. Markup
+  -- emphasis (e.g. **bold** in markdown) is kept.
   bold = true,
 
   -- Set to true to drop the background from the editor surface to
-  -- support transparent terminals. Floats and popups stay opaque.
+  -- support transparent terminals. Floats and popups stay opaque. Text the
+  -- theme hides by matching the background (e.g. the `~` past the end of a
+  -- buffer) is dimmed instead; set `fillchars` `eob: ` to hide the `~`.
   transparent = false,
 
   -- Override individual palette colors. Merged over the base palette before
@@ -112,7 +116,7 @@ require("duskhaven").setup({
 
   -- Additional highlight groups to set/override, applied after the
   -- built-in groups. Uses the same format as `nvim_set_hl`. An override is
-  -- merged over the theme's own definition of that group, and is not
+  -- merged over what that group currently displays, and is not
   -- affected by the `italic` / `bold` options above.
   highlight_overrides = {},
 })
@@ -148,8 +152,8 @@ require("duskhaven").setup({
 })
 ```
 
-Overrides are merged over the theme's definition of the same group, so an
-override only has to name what it wants to change — everything it leaves out is
+Overrides are merged over what the group currently displays, so an override
+only has to name what it wants to change — everything it leaves out is
 inherited:
 
 ```lua
@@ -161,11 +165,14 @@ require("duskhaven").setup({
 })
 ```
 
-Groups the theme does not define are set as-is, so this is also the place to
-add highlights for a plugin duskhaven does not cover yet. An override that sets
-`link` replaces the group outright, since a linked group cannot carry its own
-attributes. Partial overrides of built-in linked groups inherit the target's
-built-in colors and styles before applying your changes.
+This also holds for groups the theme does not define: an override of a group
+linked by Neovim or a plugin (e.g. `DiagnosticVirtualTextError`) inherits the
+linked colors, and an undefined treesitter capture (e.g. `@keyword.import`)
+inherits from its parent capture (`@keyword`), just as treesitter falls back.
+That makes this the place to add highlights for a plugin duskhaven does not
+cover yet, too. An override that sets `link` replaces the group outright, since
+a linked group cannot carry its own attributes. Overrides inherit from the
+theme, never from one another.
 
 `setup()` validates option types, palette colors, and highlight definitions
 before reloading. Invalid configuration raises an error naming the option and

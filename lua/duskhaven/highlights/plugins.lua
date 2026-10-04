@@ -47,7 +47,6 @@ return function(colors)
 		SnacksPickerPrompt = { fg = colors.magenta },
 		SnacksPickerTree = { fg = colors.gray_dark },
 		SnacksPickerDirectory = { fg = colors.yellow },
-		SnacksPickerDir = { fg = colors.yellow },
 		SnacksPickerFile = { fg = colors.fg },
 		SnacksPickerPathHidden = { fg = colors.gray_dark },
 		SnacksPickerPathIgnored = { fg = colors.gray_dark },

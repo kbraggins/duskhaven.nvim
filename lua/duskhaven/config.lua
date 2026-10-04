@@ -1,10 +1,12 @@
 local M = {}
 
 M.defaults = {
-	-- Set to false to disable italics across all highlight groups.
+	-- Set to false to disable italics across all highlight groups. Markup
+	-- emphasis (e.g. *italic* in markdown) is kept.
 	italic = true,
 
-	-- Set to false to disable bold text across all highlight groups.
+	-- Set to false to disable bold text across all highlight groups. Markup
+	-- emphasis (e.g. **bold** in markdown) is kept.
 	bold = true,
 
 	-- Set to true to drop the background from the editor surface so a
@@ -19,8 +21,8 @@ M.defaults = {
 	palette = {},
 
 	-- Additional highlight groups to set/override, applied after the theme's
-	-- own groups. An override is merged over the theme's definition of the
-	-- same group, so it only has to name what it wants to change, and is not
+	-- own groups. An override is merged over what the group currently
+	-- displays, so it only has to name what it wants to change, and is not
 	-- subject to the `italic` and `bold` options above:
 	--
 	--   highlight_overrides = { Comment = { fg = "#7a7a7a", italic = true } }
@@ -55,9 +57,11 @@ end
 
 local validation_ns
 
+-- Error levels point past `M.setup` and `require("duskhaven").setup` to the
+-- user's call, so the message names their config rather than this file.
 local function expect(value, kind, path)
 	if type(value) ~= kind then
-		error(("duskhaven: %s must be a %s"):format(path, kind), 3)
+		error(("duskhaven: %s must be a %s"):format(path, kind), 4)
 	end
 end
 
@@ -76,7 +80,7 @@ M.setup = function(opts)
 		expect(color, "string", "palette." .. name)
 		if (color:sub(1, 1) == "#" and not color:match("^#%x%x%x%x%x%x$"))
 			or vim.api.nvim_get_color_by_name(color) == -1 then
-			error(("duskhaven: palette.%s has invalid color %q"):format(name, color), 2)
+			error(("duskhaven: palette.%s has invalid color %q"):format(name, color), 3)
 		end
 	end
 	expect(options.highlight_overrides, "table", "highlight_overrides")
@@ -88,7 +92,7 @@ M.setup = function(opts)
 		expect(hl, "table", "highlight_overrides." .. name)
 		local ok, err = pcall(vim.api.nvim_set_hl, validation_ns, name, hl)
 		if not ok then
-			error(("duskhaven: highlight_overrides.%s: %s"):format(name, err), 2)
+			error(("duskhaven: highlight_overrides.%s: %s"):format(name, err), 3)
 		end
 	end
 	warn_unknown_palette_keys(options.palette)
